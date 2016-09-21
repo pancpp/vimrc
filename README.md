@@ -44,7 +44,7 @@ Install ctags or exuberant-ctags. Note, selecting 'exuberant-ctags' instead of '
 $ sudo apt-get install ctags
 $ sudo apt-get install exuberant-ctags
 ```
-Create tags with ctags in current folder.
+Create tags in current folder.
 ```
 $ ctags -R .
 ```
