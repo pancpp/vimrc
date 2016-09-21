@@ -32,8 +32,15 @@ Make sure you have Python headers installed
 ```bash
 $ sudo apt-get install python-dev python3-dev
 ```
-Compiling YCM without semantic support for C-family languages
+Download YouCompleteMe (YCM)
+```bash
+$ cd ~/.vim/bundle
+$ git clone https://github.com/Valloric/YouCompleteMe.git
+$ cd ~/.vim/bundle/YouCompleteMe
+$ git submodule update --init --recursive
 ```
+Compiling YCM without semantic support for C-family languages
+```bash
 $ cd ~/.vim/bundle/YouCompleteMe
 $ ./install.py
 ```
