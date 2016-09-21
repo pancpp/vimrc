@@ -1,5 +1,7 @@
 # VIMRC #
 
+VIMRC is a simple vim configuration files and plugins for VIM users in Linux system.
+
 ## Download ##
 ```bash
 $ cd ~/Downloads
