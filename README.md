@@ -14,7 +14,7 @@ $ cp -R vim ~/.vim
 ```
 
 ## Plugin ##
-The default plugins have been installed in this repository include:
+The default plugins have been installed and configured in this repository include:
 
 * [**vim-pathogen**](https://github.com/tpope/vim-pathogen)
 * [**nerdtree**](https://github.com/scrooloose/nerdtree)
@@ -25,3 +25,8 @@ Recommended plugins:
 
 * [**YouCompleteMe**](https://github.com/Valloric/YouCompleteMe)
 * **ctags**
+> install:
+>
+> ```
+> $ sudo apt-get install ctags
+> ```
