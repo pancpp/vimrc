@@ -38,7 +38,7 @@ $ cd ~/.vim/bundle/YouCompleteMe
 $ ./install.py
 ```
 
-### **ctags** ###
+### [**ctags**](http://ctags.sourceforge.net/) ###
 Install ctags or exuberant-ctags. Note, selecting 'exuberant-ctags' instead of 'ctags', exuberant-ctags is already the newest version.
 ```bash
 $ sudo apt-get install ctags
