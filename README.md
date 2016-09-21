@@ -16,15 +16,14 @@ $ cp -R vim ~/.vim
 ```
 
 ## Plugin ##
-The default plugins have been installed and configured in this repository include:
+The default plugins those have been installed and configured in this repository include:
 
 * [**vim-pathogen**](https://github.com/tpope/vim-pathogen)
 * [**nerdtree**](https://github.com/scrooloose/nerdtree)
 * [**vim-colorschemes**](https://github.com/flazz/vim-colorschemes)
 * [**setcolors**](http://vim.wikia.com/wiki/Switch_color_schemes)
 
-Recommended plugins:
-
+It is highly recommended to install the following plugins for C programmers.
 ### [**YouCompleteMe**](https://github.com/Valloric/YouCompleteMe) ###
 Install development tools and CMake
 ```bash
