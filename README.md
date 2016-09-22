@@ -49,7 +49,7 @@ For VIM prior to version 7.4.107, a [UltiSnips bug](https://github.com/Valloric/
 ```bash
 $ vim --version
 ```
-If the version is prior to the 7.4.107, you may want to upgrade it by the following method.
+If the version is prior to 7.4.107, you may want to upgrade it by the following method.
 ```bash
 $ sudo apt-get purge --auto-remove vim
 $ sudo add-apt-repository ppa:pkg-vim/vim-daily
