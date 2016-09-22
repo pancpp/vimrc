@@ -56,7 +56,7 @@ $ sudo add-apt-repository ppa:pkg-vim/vim-daily
 $ sudo apt-get update
 $ sudo apt-get install vim
 ```
-This repository will provide the unstable version of VIM with daily build. After updating VIM, re-install YouCompleteMe following above procedures.
+This repository provides the unstable version of VIM with daily build. After updating VIM, re-install YouCompleteMe following above procedures.
 
 ### [**ctags**](http://ctags.sourceforge.net/) ###
 Install ctags or exuberant-ctags. Note, selecting 'exuberant-ctags' instead of 'ctags', exuberant-ctags is already the newest version.
