@@ -65,6 +65,22 @@ $ sudo apt-get install ctags
 $ sudo apt-get install exuberant-ctags
 ```
 Create tags in current folder.
-```
+```bash
 $ ctags -R .
+```
+Create tags of the source code in <Target_Folder> and store the tags file to $HOME/.vim/tags/<Target_Tags>.tags
+```bash
+$ ctags -R --c++-kinds=+p --fields+iaS --extra=+q -f $HOME/.vim/tags/<Target_Tags>.tags <Target_Folder>
+```
+For example, I create tags for my linaro cross-compiler toolchain by the following code:
+```bash
+$ ctags -R --c++-kinds=+p --fields=+iaS --extra=+q -f $HOME/.vim/tags/toolchain.tags /usr/local/toolchain-2014.12-gcc4.9/linaro-armv7ahf-2014.12-gcc4.9/arm-linux-gnueabihf
+```
+And then, we have to let VIM know the existence of toolchain.tags. Open ctags.vim:
+```bash
+$ vim $HOME/.vim/vimrc/plugin/ctags.vim
+```
+and add the line at the end of the file as
+```viml
+set tags+=~/.vim/tags/toolchain.tags
 ```
