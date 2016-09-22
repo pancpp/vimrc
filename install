@@ -1,8 +1,79 @@
 #!/bin/bash
 
-###########################################################
-# Designed by Leyuan Pan, leyuanpan@gmail.com
-# 2016-09-12 16:55:32 PDT
-###########################################################
+##################################################################################
+# Designed by Leyuan Pan, leyuanpan@gmail.com                                    #
+# 2016-09-12 16:55:32 PDT                                                        #
+# This software is totally free for you to use at any occasion with no licenses. #
+# Enjoy!                                                                         # 
+#                                                                                #
+# Summary:                                                                       #
+#   This script install the VIMRC to your system automatically.                  #
+#   To be compatible to your system, please modify it accordingly.               #
+##################################################################################
 
+VIMRC=$HOME/.vimrc_test
+VIMDIR=$HOME/.vim_test
+# backup old .vimrc and .vim
+VIMRC_BAK=$HOME/.vimrc_bak
+VIMDIR_BAK=$HOME/.vim_bak
+
+# backup your own .vimrc and .vim folder
+if [ -e "$VIMRC" ]
+then
+    mv $VIMRC $VIMRC_BAK
+    echo "$VIMRC has been moved to $VIMRC_BAK as a backup."
+fi
+
+if [ -d "$VIMDIR" ]
+then
+    mv $VIMDIR $VIMDIR_BAK
+    echo "$VIMDIR has been moved to $VIMDIR_BAK as a backup."
+fi
+
+# vimrc: install VIMRC
+cp vimrc $VIMRC
+mkdir -p $VIMDIR/vimrc
+
+# vimrc: install backup, swap and undo directories
+mkdir -p $VIMRC/runtime/backup
+mkdir -p $VIMRC/runtime/swap
+mkdir -p $VIMRC/runtime/undo
+
+# vimrc: install base.vim
+cp vim/vimrc/base.vim $VIMDIR/vimrc/base.vim
+
+# vimrc: install filetype.vim
+cp vim/vimrc/filetype.vim $VIMDIR/vimrc/filetype.vim
+cp -R vim/vimrc/filetype $VIMDIR/filetype
+
+# vimrc: install path.vim, for cursor jump
+cp vim/vimrc/path.vim $VIMDIR/vimrc/path.vim
+cp -R vim/vimrc/path $VIMDIR/vimrc/path
+
+# vimrc: install configurations for plugins
+cp vim/vimrc/plugin.vim $VIMDIR/vimrc/plugin.vim
+mkdir -p $VIMDIR/vimrc/plugin
+
+
+# plugin: download and install vim-pathogen
+mkdir -p $VIMDIR/autoload
+mkdir -p $VIMDIR/bundle
+curl -LSso $VIMDIR/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+cp vim/vimrc/plugin/pathogen.vim $VIMDIR/vimrc/plugin/pathogen.vim
+
+# plugin: download and install nerdtree
+git clone https://github.com/scrooloose/nerdtree.git $VIMDIR/bundle/nerdtree
+cp vim/vimrc/plugin/nerdtree.vim $VIMDIR/vimrc/plugin/nerdtree.vim
+
+# plugin: download and install YouCompleteMe
+git clone https://github.com/Valloric/YouCompleteMe.git $VIMDIR/bundle/YouCompleteMe
+CURDIR=$PWD
+cd $VIMDIR/bundle/YouCompleteMe
+git submodule update --init --recursive
+# ./install --clang-completer
+./install
+cp vim/vimrc/plugin/youcompleteme.vim $VIMDIR/vimrc/plugin/youcompleteme.vim
+cd "$CURDIR"
+
+# plugin: download and install vim-colorschemes
 
