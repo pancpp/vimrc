@@ -45,6 +45,18 @@ Compiling YCM without semantic support for C-family languages
 $ cd ~/.vim/bundle/YouCompleteMe
 $ ./install.py
 ```
+For VIM prior to version 7.4.107, a [UltiSnips bug](https://github.com/Valloric/YouCompleteMe/issues/2337) blocks YouCompleteMe. To fix this bug, it is recommended to upgrade your VIM to newer version. If you are using Ubuntu 14.04, the official repository may be providing the version below 7.4.107. Before continuing to read the following manual, you may want to check your VIM version by command:
+```bash
+vim --version
+```
+If the version is prior to the 7.4.107, you may want to upgrade it by the following method.
+```bash
+sudo apt-get purge --auto-remove vim
+sudo add-apt-repository ppa:pkg-vim/vim-daily
+sudo apt-get update
+sudo apt-get install vim
+```
+This repository will provide the unstable version of VIM with daily build. After updating VIM, re-install YouCompleteMe following above procedures.
 
 ### [**ctags**](http://ctags.sourceforge.net/) ###
 Install ctags or exuberant-ctags. Note, selecting 'exuberant-ctags' instead of 'ctags', exuberant-ctags is already the newest version.
