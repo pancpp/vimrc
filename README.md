@@ -70,7 +70,7 @@ $ ctags -R .
 ```
 Create tags of the source code in <Target_Folder> and store the tags file to $HOME/.vim/tags/<Target_Tags>.tags
 ```bash
-$ ctags -R --c++-kinds=+p --fields+iaS --extra=+q -f $HOME/.vim/tags/<Target_Tags>.tags <Target_Folder>
+$ ctags -R --c++-kinds=+p --fields=+iaS --extra=+q -f $HOME/.vim/tags/<Target_Tags>.tags <Target_Folder>
 ```
 For example, I create tags for my linaro cross-compiler toolchain by the following code:
 ```bash
