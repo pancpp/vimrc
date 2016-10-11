@@ -56,7 +56,6 @@ then
     TAGS_PATH="${TARGET_DIR}/tags"
 fi
 
-echo "Creating tags for directory '${TARGET_DIR}' as '${TAGS_PATH}' ... "
 # create tags
 echo "ctags -R --c++-kinds=+p --fields=+iaS --extra=+q ${EXCLUDE} -f ${TAGS_PATH} ${TARGET_DIR}"
 ctags -R --c++-kinds=+p --fields=+iaS --extra=+q ${EXCLUDE} -f ${TAGS_PATH} ${TARGET_DIR}
