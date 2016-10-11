@@ -1,0 +1,57 @@
+#!/bin/bash
+
+usage(){
+    echo "Usage:"
+    echo "    create-tags [TARGET_DIR] [-f TAGS_PATH] [-e|--exclude EXCLUDE_DIR] [-h|--help]"
+    echo "Example:"
+    echo "    create-tags"
+    echo "        create tags recursively in current directory and put it in current directory."
+    echo "    create-tags ."
+    echo "        create tags recursively in current directory and put it in current directory."
+    echo "    create-tags . ./tags"
+    echo "        create tags recursively in current directory, name it tags and put it in current directory."
+    echo "    create-tags ~/source ~/tags"
+    echo "        create tags recursively in ~/source, name it tags and put it in home directory."
+}
+
+TARGET_DIR=
+TAGS_PATH=
+EXCLUDE=
+
+while [[ $# -gt 0 ]]
+do
+    case "$1" in
+        -h|--help)
+            usage
+            exit
+            ;;
+        -f)
+            TAGS_PATH="$2"
+            shift
+            ;;
+        -e|--exclude)
+            EXCLUDE="${EXCLUDE} --exclude=$2"
+            shift
+            ;;
+        *)
+            TARGET_DIR="$1"
+            ;;
+    esac
+    shift
+done
+
+if [[ "${TARGET_DIR}" -eq "" ]]
+then
+    TARGET_DIR=`pwd`
+fi
+
+if [[ "${TAGS_PATH}" -eq "" ]]
+then
+    TAGS_PATH="${TARGET_DIR}/tags"
+fi
+
+echo "Creating tags for directory '${TARGET_DIR}' as '${TAGS_PATH}' ... "
+# create tags
+echo "ctags -R --c++-kinds=+p --fields=+iaS --extra=+q ${EXCLUDE} -f ${TAGS_PATH} ${TARGET_DIR}"
+ctags -R --c++-kinds=+p --fields=+iaS --extra=+q ${EXCLUDE} -f ${TAGS_PATH} ${TARGET_DIR}
+
