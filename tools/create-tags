@@ -1,23 +1,32 @@
 #!/bin/bash
 
 usage(){
-    echo "Usage:"
-    echo "    create-tags [TARGET_DIR] [-f TAGS_PATH] [-e|--exclude EXCLUDE_DIR] [-h|--help]"
-    echo "Example:"
-    echo "    create-tags"
-    echo "        create tags recursively in current directory and put it in current directory."
-    echo "    create-tags ."
-    echo "        create tags recursively in current directory and put it in current directory."
-    echo "    create-tags . ./tags"
-    echo "        create tags recursively in current directory, name it tags and put it in current directory."
-    echo "    create-tags ~/source ~/tags"
-    echo "        create tags recursively in ~/source, name it tags and put it in home directory."
-    echo ""
-    echo ""
-    echo "Version 1.0.0"
-    echo "Copyright (C)Leyuan Pan"
-    echo "leyuanpan@gmail.com"
-    echo "2016-10-11"
+    echo -e "Usage:"
+    echo -e "    create-tags [OPTIONS] [TARGET_DIR]" 
+    echo
+    echo -e "Options:"
+    echo
+    echo -e "  -h --help             \tdisplay this help message."
+    echo -e "  -e --exclude DIRECTORY\texclude directories for ctags."
+    echo -e "                        \tcan be used for multiple declarations."
+    echo -e "  -f FILE               \tthe path of created tags."
+    echo
+    echo -e "Examples:"
+    echo
+    echo -e "  create-tags"
+    echo -e "      create tags recursively in current directory and put it in current directory."
+    echo -e "  create-tags ."
+    echo -e "      create tags recursively in current directory and put it in current directory."
+    echo -e "  create-tags . ./tags"
+    echo -e "      create tags recursively in current directory, name it tags and put it in current directory."
+    echo -e "  create-tags ~/source ~/tags"
+    echo -e "      create tags recursively in ~/source, name it tags and put it in home directory."
+    echo
+    echo -e ""
+    echo -e "  Version 1.0.0"
+    echo -e "  Copyright (C)Leyuan Pan"
+    echo -e "  leyuanpan@gmail.com"
+    echo -e "  2016-10-11"
 }
 
 TARGET_DIR=
