@@ -12,6 +12,12 @@ usage(){
     echo "        create tags recursively in current directory, name it tags and put it in current directory."
     echo "    create-tags ~/source ~/tags"
     echo "        create tags recursively in ~/source, name it tags and put it in home directory."
+    echo ""
+    echo ""
+    echo "Version 1.0.0"
+    echo "Copyright (C)Leyuan Pan"
+    echo "leyuanpan@gmail.com"
+    echo "2016-10-11"
 }
 
 TARGET_DIR=
