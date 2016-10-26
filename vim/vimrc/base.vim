@@ -552,7 +552,7 @@ cno <C-K> <C-U>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" -> Buffer realted
+" -> Buffer related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Fast open a buffer by search for a name
 "map <c-q> :sb
@@ -615,7 +615,10 @@ map <leader>s? z=
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " -> change size of splitted windows
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" map <C->
+nmap <C-Left> :vertical resize -2
+nmap <C-Right> :vertical resize +2
+nmap <C-Up> :resize -2
+nmap <C-Down> :resize +2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " -> VIM
