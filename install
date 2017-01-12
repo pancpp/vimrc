@@ -35,9 +35,9 @@ cp vimrc $VIMRC
 mkdir -p $VIMDIR/vimrc
 
 # vimrc: install backup, swap and undo directories
-mkdir -p $VIMRC/runtime/backup
-mkdir -p $VIMRC/runtime/swap
-mkdir -p $VIMRC/runtime/undo
+mkdir -p $VIMDIR/runtime/backup
+mkdir -p $VIMDIR/runtime/swap
+mkdir -p $VIMDIR/runtime/undo
 
 # vimrc: install base.vim
 cp vim/vimrc/base.vim $VIMDIR/vimrc/base.vim
@@ -46,14 +46,9 @@ cp vim/vimrc/base.vim $VIMDIR/vimrc/base.vim
 cp vim/vimrc/filetype.vim $VIMDIR/vimrc/filetype.vim
 cp -R vim/vimrc/filetype $VIMDIR/filetype
 
-# vimrc: install path.vim, for cursor jump
-cp vim/vimrc/path.vim $VIMDIR/vimrc/path.vim
-cp -R vim/vimrc/path $VIMDIR/vimrc/path
-
 # vimrc: install configurations for plugins
 cp vim/vimrc/plugin.vim $VIMDIR/vimrc/plugin.vim
 mkdir -p $VIMDIR/vimrc/plugin
-
 
 # plugin: download and install vim-pathogen
 mkdir -p $VIMDIR/autoload
@@ -67,13 +62,12 @@ cp vim/vimrc/plugin/nerdtree.vim $VIMDIR/vimrc/plugin/nerdtree.vim
 
 # plugin: download and install YouCompleteMe
 git clone https://github.com/Valloric/YouCompleteMe.git $VIMDIR/bundle/YouCompleteMe
-CURDIR=$PWD
-cd $VIMDIR/bundle/YouCompleteMe
+pushd $VIMDIR/bundle/YouCompleteMe
 git submodule update --init --recursive
 # ./install --clang-completer
-./install
+./install.py
+popd
 cp vim/vimrc/plugin/youcompleteme.vim $VIMDIR/vimrc/plugin/youcompleteme.vim
-cd "$CURDIR"
 
 # plugin: download and install vim-colorschemes
 
