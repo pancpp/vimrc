@@ -44,23 +44,23 @@ cp vim/vimrc/base.vim $VIMDIR/vimrc/base.vim
 
 # vimrc: install filetype.vim
 cp vim/vimrc/filetype.vim $VIMDIR/vimrc/filetype.vim
-cp -R vim/vimrc/filetype $VIMDIR/filetype
+cp -R vim/vimrc/filetype $VIMDIR/vimrc/filetype
 
 # vimrc: install configurations for plugins
 cp vim/vimrc/plugin.vim $VIMDIR/vimrc/plugin.vim
 mkdir -p $VIMDIR/vimrc/plugin
 
-# plugin: download and install vim-pathogen
+# plugin: vim-pathogen
 mkdir -p $VIMDIR/autoload
 mkdir -p $VIMDIR/bundle
 curl -LSso $VIMDIR/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 cp vim/vimrc/plugin/pathogen.vim $VIMDIR/vimrc/plugin/pathogen.vim
 
-# plugin: download and install nerdtree
+# plugin: nerdtree
 git clone https://github.com/scrooloose/nerdtree.git $VIMDIR/bundle/nerdtree
 cp vim/vimrc/plugin/nerdtree.vim $VIMDIR/vimrc/plugin/nerdtree.vim
 
-# plugin: download and install YouCompleteMe
+# plugin: YouCompleteMe
 git clone https://github.com/Valloric/YouCompleteMe.git $VIMDIR/bundle/YouCompleteMe
 pushd $VIMDIR/bundle/YouCompleteMe
 git submodule update --init --recursive
@@ -68,6 +68,14 @@ git submodule update --init --recursive
 ./install.py
 popd
 cp vim/vimrc/plugin/youcompleteme.vim $VIMDIR/vimrc/plugin/youcompleteme.vim
+
+# plugin: ctags(exuberant-ctags)
+cp vim/vimrc/plugin/ctags.vim $VIMDIR/vimrc/plugin/ctags.vim
+#sudo apt-get install -y ctags
+#sudo apt-get install -y exuberant-ctags
+
+# plugin: taglist
+cp vim/vimrc/plugin/taglist.vim $VIMDIR/vimrc/plugin/taglist.vim
 
 # plugin: download and install vim-colorschemes
 
