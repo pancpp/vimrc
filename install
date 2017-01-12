@@ -11,8 +11,8 @@
 #   To be compatible to your system, please modify it accordingly.               #
 ##################################################################################
 
-VIMRC=$HOME/.vimrc_test
-VIMDIR=$HOME/.vim_test
+VIMRC=$HOME/.vimrc
+VIMDIR=$HOME/.vim
 # backup old .vimrc and .vim
 VIMRC_BAK=$HOME/.vimrc_bak
 VIMDIR_BAK=$HOME/.vim_bak
