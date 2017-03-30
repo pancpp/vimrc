@@ -8,7 +8,13 @@ $ cd ~/Downloads
 $ git clone https://leyuanpan@bitbucket.org/leyuanpan/vimrc.git
 ```
 
-## Install ##
+## Automatically Install ##
+```bash
+$ cd ~/Downloads/vimrc
+$ ./install
+```
+
+## Manually Install ##
 ```bash
 $ cd ~/Downloads/vimrc
 $ cp vimrc ~/.vimrc
