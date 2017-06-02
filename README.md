@@ -10,6 +10,8 @@ $ git clone https://leyuanpan@bitbucket.org/leyuanpan/vimrc.git
 
 ## Automatically Install ##
 ```bash
+$ sudo apt-get install -y cmake
+$ sudo apt-get install -y exuberant-ctags
 $ cd ~/Downloads/vimrc
 $ ./install
 ```
