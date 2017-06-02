@@ -11,71 +11,90 @@
 #   To be compatible to your system, please modify it accordingly.               #
 ##################################################################################
 
-VIMRC=$HOME/.vimrc
-VIMDIR=$HOME/.vim
+CP_VERBOSE= # -v
+VIMRC=${HOME}/.vimrc
+VIMDIR=${HOME}/.vim
 # backup old .vimrc and .vim
-VIMRC_BAK=$HOME/.vimrc_bak
-VIMDIR_BAK=$HOME/.vim_bak
+VIMRC_BAK=${HOME}/.vimrc_bak
+VIMDIR_BAK=${HOME}/.vim_bak
 
 # backup your own .vimrc and .vim folder
-if [ -e "$VIMRC" ]
+if [ -e "${VIMRC}" ]
 then
-    mv $VIMRC $VIMRC_BAK
-    echo "$VIMRC has been moved to $VIMRC_BAK as a backup."
+    rm -rf ${VIMRC_BAK}
+    mv ${VIMRC} ${VIMRC_BAK}
+    echo "${VIMRC} has been moved to ${VIMRC_BAK} as a backup."
 fi
 
-if [ -d "$VIMDIR" ]
+if [ -d "${VIMDIR}" ]
 then
-    mv $VIMDIR $VIMDIR_BAK
-    echo "$VIMDIR has been moved to $VIMDIR_BAK as a backup."
+    rm -rf ${VIMDIR_BAK}
+    mv ${VIMDIR} ${VIMDIR_BAK}
+    echo "${VIMDIR} has been moved to ${VIMDIR_BAK} as a backup."
 fi
 
 # vimrc: install VIMRC
-cp vimrc $VIMRC
-mkdir -p $VIMDIR/vimrc
+cp ${CP_VERBOSE} vimrc ${VIMRC}
+mkdir -p ${VIMDIR}/vimrc
 
 # vimrc: install backup, swap and undo directories
-mkdir -p $VIMDIR/runtime/backup
-mkdir -p $VIMDIR/runtime/swap
-mkdir -p $VIMDIR/runtime/undo
+mkdir -p ${VIMDIR}/runtime/backup
+mkdir -p ${VIMDIR}/runtime/swap
+mkdir -p ${VIMDIR}/runtime/undo
 
 # vimrc: install base.vim
-cp vim/vimrc/base.vim $VIMDIR/vimrc/base.vim
+cp ${CP_VERBOSE} vim/vimrc/base.vim ${VIMDIR}/vimrc/
 
 # vimrc: install filetype.vim
-cp vim/vimrc/filetype.vim $VIMDIR/vimrc/filetype.vim
-cp -R vim/vimrc/filetype $VIMDIR/vimrc/filetype
+cp ${CP_VERBOSE} vim/vimrc/filetype.vim ${VIMDIR}/vimrc/
+cp ${CP_VERBOSE} -R vim/vimrc/filetype ${VIMDIR}/vimrc/
 
 # vimrc: install configurations for plugins
-cp vim/vimrc/plugin.vim $VIMDIR/vimrc/plugin.vim
-mkdir -p $VIMDIR/vimrc/plugin
+cp ${CP_VERBOSE} vim/vimrc/plugin.vim ${VIMDIR}/vimrc/
+mkdir -p ${VIMDIR}/vimrc/plugin
 
 # plugin: vim-pathogen
-mkdir -p $VIMDIR/autoload
-mkdir -p $VIMDIR/bundle
-curl -LSso $VIMDIR/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-cp vim/vimrc/plugin/pathogen.vim $VIMDIR/vimrc/plugin/pathogen.vim
+mkdir -p ${VIMDIR}/autoload
+mkdir -p ${VIMDIR}/bundle
+cp ${CP_VERBOSE} vim/autoload/pathogen.vim ${VIMDIR}/autoload/
+cp ${CP_VERBOSE} vim/vimrc/plugin/pathogen.vim ${VIMDIR}/vimrc/plugin/
 
 # plugin: nerdtree
-git clone https://github.com/scrooloose/nerdtree.git $VIMDIR/bundle/nerdtree
-cp vim/vimrc/plugin/nerdtree.vim $VIMDIR/vimrc/plugin/nerdtree.vim
-
-# plugin: YouCompleteMe
-git clone https://github.com/Valloric/YouCompleteMe.git $VIMDIR/bundle/YouCompleteMe
-pushd $VIMDIR/bundle/YouCompleteMe
-git submodule update --init --recursive
-# ./install --clang-completer
-./install.py
-popd
-cp vim/vimrc/plugin/youcompleteme.vim $VIMDIR/vimrc/plugin/youcompleteme.vim
+cp ${CP_VERBOSE} -R vim/bundle/nerdtree ${VIMDIR}/bundle/
+cp ${CP_VERBOSE} vim/vimrc/plugin/nerdtree.vim ${VIMDIR}/vimrc/plugin/
 
 # plugin: ctags(exuberant-ctags)
-cp vim/vimrc/plugin/ctags.vim $VIMDIR/vimrc/plugin/ctags.vim
+cp ${CP_VERBOSE} vim/vimrc/plugin/ctags.vim ${VIMDIR}/vimrc/plugin/
 #sudo apt-get install -y ctags
 #sudo apt-get install -y exuberant-ctags
 
 # plugin: taglist
-cp vim/vimrc/plugin/taglist.vim $VIMDIR/vimrc/plugin/taglist.vim
+mkdir -p ${VIMDIR}/plugin
+cp ${CP_VERBOSE} vim/plugin/taglist.vim ${VIMDIR}/plugin/
+cp ${CP_VERBOSE} vim/vimrc/plugin/taglist.vim ${VIMDIR}/vimrc/plugin/
 
-# plugin: download and install vim-colorschemes
+# plugin: yankring
+cp ${CP_VERBOSE} vim/vimrc/plugin/yankring.vim ${VIMDIR}/vimrc/plugin/
+
+# plugin: install vim-colorschemes
+cp ${CP_VERBOSE} -R vim/bundle/colorschemes ${VIMDIR}/bundle/
+
+# plugin: install setcolors
+cp ${CP_VERBOSE} -R vim/bundle/setcolors ${VIMDIR}/bundle/
+
+# plugin: YouCompleteMe
+git clone https://github.com/Valloric/YouCompleteMe.git ${VIMDIR}/bundle/YouCompleteMe
+pushd ${VIMDIR}/bundle/YouCompleteMe
+git submodule update --init --recursive
+# ./install --clang-completer
+./install.py
+popd
+cp ${CP_VERBOSE} vim/vimrc/plugin/youcompleteme.vim ${VIMDIR}/vimrc/plugin/
+
+# copy docs
+cp ${CP_VERBOSE} -R vim/doc ${VIMDIR}/
+
+# Done!
+date
+echo INSTALLATION DONE!
 
