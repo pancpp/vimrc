@@ -2,9 +2,11 @@
 
 VIMRC is a simple vim configuration files and plugins for VIM users in Linux systems.
 
+Note: this repo is transferred from https://github.com/michaelpan129/vimrc.git .
+
 ## Download ##
 ```bash
-$ git clone https://github.com/michaelpan129/vimrc.git
+$ git clone https://github.com/pancpp/vimrc.git
 ```
 
 ## Automatically Install ##
