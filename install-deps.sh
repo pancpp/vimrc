@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # This script install the dependencies of VIMRC to your system automatically.
 # To be compatible to your system, please modify it accordingly.
 # Root previledge is required.
