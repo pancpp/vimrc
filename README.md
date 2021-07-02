@@ -11,9 +11,7 @@ $ git clone https://github.com/pancpp/vimrc.git
 
 ## Automatically Install ##
 ```bash
-$ sudo apt-get install -y cmake
-$ sudo apt-get install -y exuberant-ctags
-$ cd vimrc
+$ sudo ./install-deps.sh
 $ ./install
 ```
 
