@@ -29,6 +29,7 @@
 ##################################################################################
 
 CP_VERBOSE= # -v
+VIMVER=$(vim --version | grep -Po "(?<=Vi IMproved )[0-9].[0-9]")
 VIMRC=${HOME}/.vimrc
 VIMDIR=${HOME}/.vim
 # backup old .vimrc and .vim
@@ -102,6 +103,9 @@ cp ${CP_VERBOSE} -R vim/bundle/setcolors ${VIMDIR}/bundle/
 # plugin: YouCompleteMe
 git clone https://github.com/Valloric/YouCompleteMe.git ${VIMDIR}/bundle/YouCompleteMe
 pushd ${VIMDIR}/bundle/YouCompleteMe
+if [ $(echo "$VIMVER < 8.1"| bc) -eq 1 ]; then
+    git checkout d98f896ada495c3687007313374b2f945a2f2fb4
+fi
 git submodule update --init --recursive
 # ./install --clang-completer
 ./install.py
